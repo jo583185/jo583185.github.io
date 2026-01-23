@@ -14,7 +14,7 @@
 
   <h2> Select Pizza Size</h2>
 
-  <select name="size" id"size">
+  <select name="size" id="size" required>
     <option value="selectsize">--Select Size--</option>
     <option value="medium">Medium</option>
     <option value="large">Large</option>
@@ -22,13 +22,13 @@
   </select>
   
 
-  <h2> Select Sauce</h2>
-  <input type="radio" id="marinara" name="sauce" value="Marinara">
-  <label for="Marinara">HTML</label><br>
+  <h2>Select Sauce</h2>
+  <input type="radio" id="marinara" name="sauce" value="Marinara" required>
+  <label for="marinara">Marinara</label><br>
   <input type="radio" id="ranch" name="sauce" value="Ranch">
-  <label for="Ranch">CSS</label><br>
+  <label for="ranch">Ranch</label><br>
   <input type="radio" id="nosauce" name="sauce" value="NoSauce">
-  <label for="No Sauce">JavaScript</label>
+  <label for="nosauce">No Sauce</label>
 
   <h2> Select Toppings</h2>
   <input type="checkbox" id="topping1" name="topping1" value="Pepperoni">
@@ -45,6 +45,7 @@
   <label for="topping6"> Onions</label><br>
 
   <h2> Additional Instructions</h2>
+  <textarea>name="instructions" Additional Instructions</textarea><br>
 
   <input type="submit">
 </form>
