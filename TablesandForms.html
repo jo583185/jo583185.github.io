@@ -15,7 +15,7 @@
   <h2> Select Pizza Size</h2>
 
   <select name="size" id="size" required>
-    <option value="selectsize">--Select Size--</option>
+    <option value="selectsize" disabled>--Select Size--</option>
     <option value="medium">Medium</option>
     <option value="large">Large</option>
     <option value="xlarge">XLarge</option>
@@ -45,11 +45,46 @@
   <label for="topping6"> Onions</label><br>
 
   <h2> Additional Instructions</h2>
-  <textarea>name="instructions" Additional Instructions</textarea><br>
+  <textarea name="instructions"> Additional Instructions</textarea><br>
 
   <input type="submit">
 </form>
 
-<table>
-  <p>List of My Favorite Games</p>
+<p>List of My Favorite Games</p>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Developer</th>
+      <th>Title</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">Hal Labs</td>
+      <td>Kirby: Planet Robobot</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <td>Kirby Air Riders</td>
+      <td>2025</td>
+    </tr>
+    <tr>
+      <td>Capcom</td>
+      <td>Monster Hunter Generations Ultimate</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <td>Insomniac Games</td>
+      <td>Ratchet & Clank Future: A Crack in Time</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <td colspan="3">Count: 4</td>
+    </tr>
+  </tbody>
 </table>
+
+
+
+
