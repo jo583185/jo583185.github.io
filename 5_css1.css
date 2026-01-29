@@ -19,6 +19,13 @@ h2 {
   margin: 20px;
   line-hight: 2.0;
 }
+
+#blue {
+  background-color: darkblue;
+  color: white;
+  padding: 10px;
+  border: 1px;
+}
   
 table th, td {
   border: 1px solid;
