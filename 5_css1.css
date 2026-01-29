@@ -13,8 +13,8 @@ h2 {
 }
 #paragraph2 {
   background-color: white;
-  width: 600px;
-  border: 10px ;
+  width: 1000px;
+  border: 10px solid green;
   padding: 50px;
   margin: 20px;
   line-hight: 2.0;
