@@ -28,9 +28,7 @@ h2 {
 }
   
 table th, td {
-  border: 1px solid;
-  padding: 10px;
-  
+  border: 1px solid;  
 }
 
 table {
@@ -43,4 +41,5 @@ th {
 
 td {
   background-color: white;
+  padding: 10px;
 }
