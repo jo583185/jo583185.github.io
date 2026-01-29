@@ -11,7 +11,7 @@ h2 {
   font-weight: bold;
   font-family: arial;
 }
-paragraph2 {
+p id=paragraph2 {
   border-width: 1px;
   border-style: solid;
   border-color: black;
