@@ -33,3 +33,7 @@ table {
 th {
   background-color: gray;
 }
+
+td {
+  background-color: white;
+}
