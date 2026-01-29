@@ -11,9 +11,10 @@ h2 {
   font-weight: bold;
   font-family: arial;
 }
-p {
+paragraph2 {
   border-width: 1px;
   border-style: solid;
   border-color: black;
+  padding-left: 15px;
 }
   
