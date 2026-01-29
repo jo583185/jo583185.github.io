@@ -26,6 +26,10 @@ h2 {
   padding: 15px;
   border: 1px;
 }
+
+ol {
+  list-style-type: decimal-leading-zero;
+}
   
 table th, td {
   border: 1px solid;  
