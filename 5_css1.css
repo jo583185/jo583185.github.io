@@ -11,9 +11,9 @@ h2 {
   font-weight: bold;
   font-family: arial;
 }
-p id="paragraph2" {
-  background-color: lightgrey;
-  width: 300px;
+paragraph2 {
+  background-color: white;
+  width: 600px;
   border: 15px solid green;
   padding: 50px;
   margin: 20px;
