@@ -35,6 +35,9 @@ table th, td {
   border: 1px solid;  
 }
 
+a[target="_blank"] {
+    color: #ff0000;
+}
 table {
   border-collapse: collapse;
 }
