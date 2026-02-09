@@ -1,259 +1,104 @@
-/* 7_transition.css */
+/* ===============================
+   GENERAL RESET / BASE STYLES
+   =============================== */
 
-/* 1. First letter styling for article main text */
-article p:first-of-type::first-letter {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 36px;
-    float: left;
-    line-height: 1;
-    margin-right: 5px;
-    font-weight: bold;
+body {
+    font-family: Arial, sans-serif;
 }
 
-/* 2. Read More links with arrow */
-article p:last-of-type a[href="http://www.google.com"] {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
-article p:last-of-type a[href="http://www.google.com"]::after {
-    content: "";
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/36/Arrow-right.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: transform 0.3s ease;
-}
-
-article p:last-of-type a[href="http://www.google.com"]:hover::after {
-    transform: translateX(3px);
-}
-
-/* 3. & 4. Article hover transitions (2 seconds) */
 article {
-    color: #666; /* Lightly-colored text */
-    max-height: 200px;
+    color: #999;                 /* lightly-colored text initially */
+    max-height: 220px;           /* collapsed height */
     overflow: hidden;
-    transition: all 2s ease-in-out;
-    padding: 15px;
-    margin: 20px 0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
+    transition: color 2s, max-height 2s;
 }
+
+/* ===============================
+   ARTICLE HOVER EXPANSION
+   =============================== */
 
 article:hover {
-    color: #000; /* Darker text on hover */
-    max-height: 1000px; /* Expand to show full content */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-color: #007bff;
+    color: #222;                 /* darker text on hover */
+    max-height: 2000px;          /* expand article */
 }
 
-/* 5. Navigation button hover */
+/* ===============================
+   FIRST LETTER STYLING
+   (Main article text only)
+   =============================== */
+
+article > p:first-of-type::first-letter {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 36px;
+    font-weight: normal;
+}
+
+/* ===============================
+   GOOGLE LINKS ARROW ICON
+   =============================== */
+
+a[href*="google.com"]::after {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 6px;
+    background-image: url("arrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+/* ===============================
+   NAVIGATION BUTTON HOVER
+   =============================== */
+
 nav button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    background-color: white;
+    background-color: #eee;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 4px;
-    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
 nav button:hover {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
+    background-color: #ccc;
 }
 
-/* 6. Recent Articles dropdown with proper styling */
-#menuItems {
-    background-color: #f5f5f5;
-    padding: 15px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 2px solid #ddd;
-}
-
-#recentArticles {
-    position: relative;
-    display: inline-block;
-}
+/* ===============================
+   RECENT ARTICLES DROPDOWN
+   =============================== */
 
 #jumpMenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    z-index: 100;
-    min-width: 200px;
-    padding: 10px 0;
-    margin: 5px 0 0 0;
     list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    display: none;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
 }
 
-#recentArticles:hover #jumpMenu {
+/* Show list when hovering over Recent Articles button */
+#recentArticles:hover + #jumpMenu,
+#jumpMenu:hover {
     display: block;
 }
 
-#jumpMenu li {
-    margin: 0;
-    padding: 0;
-}
+/* ===============================
+   DROPDOWN LINK HOVER EFFECTS
+   =============================== */
 
 #jumpMenu li a {
     display: block;
-    padding: 8px 20px;
+    padding: 8px 12px;
     text-decoration: none;
     color: #333;
-    transition: all 0.3s ease;
-    border-left: 3px solid transparent;
+    transition: color 0.3s, background-color 0.3s;
 }
 
-/* 7. Jump menu link hover */
 #jumpMenu li a:hover {
-    color: white;
-    background-color: #007bff;
-    border-left-color: #0056b3;
-    padding-left: 25px;
-}
-
-/* Additional styles for better appearance */
-header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-header p {
-    margin: 0;
-    font-size: 32px;
-    font-weight: bold;
-}
-
-#container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #2c3e50;
-    font-size: 36px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 15px;
-}
-
-h2 {
-    margin-top: 0;
-    color: #2c3e50;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-article p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-footer {
-    background-color: #2c3e50;
-    color: white;
-    padding: 30px;
-    margin-top: 50px;
-    text-align: center;
-}
-
-footer address div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 15px;
-}
-
-footer span {
-    margin-right: 5px;
-    font-weight: bold;
-}
-
-footer a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-#thanks {
-    text-align: center;
-    font-style: italic;
-    margin: 40px 0;
-    color: #666;
-    font-size: 18px;
-}
-
-#thanks a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-#thanks a:hover {
-    text-decoration: underline;
-}
-
-/* Ensure buttons have proper cursor */
-button {
-    cursor: pointer;
-}
-
-/* Style for all buttons except the Recent Articles which is handled separately */
-nav button:not(#recentArticles) {
-    background-color: #f8f9fa;
-}
-
-nav button:not(#recentArticles):hover {
-    background-color: #007bff;
-    color: white;
-}
-
-/* Make sure the main content has proper spacing */
-main {
-    padding-bottom: 50px;
-}
-
-/* Article separators */
-article {
-    border-top: 3px solid #eee;
-}
-
-article:first-of-type {
-    border-top: none;
-}
-
-/* Improve dropdown arrow indication */
-#recentArticles::after {
-    content: " ▼";
-    font-size: 0.8em;
-    margin-left: 5px;
+    background-color: #333;
+    color: #fff;
 }
