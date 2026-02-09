@@ -1,104 +1,416 @@
-/* ===============================
-   GENERAL RESET / BASE STYLES
-   =============================== */
+/* 7_transition.css */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    display: flex;
+    min-height: 100vh;
 }
 
-article {
-    color: #999;                 /* lightly-colored text initially */
-    max-height: 220px;           /* collapsed height */
-    overflow: hidden;
-    transition: color 2s, max-height 2s;
+/* Sidebar containing the jumpmenu - changed to black background */
+#menuItems {
+    width: 250px;
+    background-color: #000; /* Black background */
+    padding: 15px;
+    border-right: 1px solid #ddd;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    z-index: 100;
+    text-align: center;
 }
 
-/* ===============================
-   ARTICLE HOVER EXPANSION
-   =============================== */
-
-article:hover {
-    color: #222;                 /* darker text on hover */
-    max-height: 2000px;          /* expand article */
-}
-
-/* ===============================
-   FIRST LETTER STYLING
-   (Main article text only)
-   =============================== */
-
-article > p:first-of-type::first-letter {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 36px;
-    font-weight: normal;
-}
-
-/* ===============================
-   GOOGLE LINKS ARROW ICON
-   =============================== */
-
-a[href*="google.com"]::after {
-    content: "";
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    margin-left: 6px;
-    background-image: url("arrow.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    vertical-align: middle;
-}
-
-/* ===============================
-   NAVIGATION BUTTON HOVER
-   =============================== */
-
-nav button {
-    background-color: #eee;
-    border: none;
-    padding: 10px 15px;
-    margin-right: 5px;
+/* Navigation buttons in sidebar - added black border */
+#menuItems button {
+    display: block;
+    width: 100%;
+    padding: 10px 12px; /* Reduced padding */
+    border: 1px solid #000; 
+    background-color: #3498db; 
+    color: white; 
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 8px; /* Add back the spacing between buttons */
 }
 
-nav button:hover {
-    background-color: #ccc;
+/* Navigation button hover effect - changed to dark blue */
+#menuItems button:hover {
+    background-color: #1a5276; /* Dark blue color */
+    color: white; /* Keep white text */
+    border-color: #000; /* Keep black border on hover */
 }
 
-/* ===============================
-   RECENT ARTICLES DROPDOWN
-   =============================== */
-
+/* Jump menu - HIDDEN by default */
 #jumpMenu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    position: absolute;
     display: none;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
+    list-style: none;
+    margin-top: 15px; /* Reduced spacing */
+    margin-bottom: 20px; /* Reduced spacing */
+    background-color: gold;
+    border: 1px solid #ddd;
+    padding: 8px 0; /* Reduced padding */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Show list when hovering over Recent Articles button */
-#recentArticles:hover + #jumpMenu,
+/* Show jump menu when hovering over Recent Articles button */
+#recentArticles:hover ~ #jumpMenu,
 #jumpMenu:hover {
     display: block;
 }
 
-/* ===============================
-   DROPDOWN LINK HOVER EFFECTS
-   =============================== */
-
-#jumpMenu li a {
-    display: block;
-    padding: 8px 12px;
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s, background-color 0.3s;
+#jumpMenu li {
+    margin-bottom: 0;
 }
 
-#jumpMenu li a:hover {
-    background-color: #333;
-    color: #fff;
+#jumpMenu a {
+    display: block;
+    padding: 8px 12px; /* Reduced padding */
+    color: #555;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for jump menu links */
+#jumpMenu a:hover {
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Main content area */
+main {
+    margin-left: 250px;
+    padding: 0;
+    flex: 1;
+    width: calc(100% - 250px);
+    position: relative;
+}
+
+/* Header styling - full width red background starting from top */
+header {
+    margin-bottom: 30px;
+    padding: 25px 30px;
+    background-color: #ff0000; /* Red background */
+    text-align: center;
+    width: 100%;
+    border-radius: 0;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+header p {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000; /* Black text */
+}
+
+/* Main heading - centered */
+h1 {
+    color: #2c3e50;
+    margin: 30px auto;
+    font-size: 32px;
+    border-bottom: none;
+    padding-bottom: 10px;
+    text-align: center;
+    max-width: 1200px;
+    padding: 0 30px;
+}
+
+/* Article container - grid layout */
+#container {
+    padding: 0 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 30px; /* Space between articles */
+}
+
+/* Article styling - updated for grid layout */
+article {
+    color: #bbb; /* Gray text initially */
+    max-height: 300px; /* Increased from 150px to show more text */
+    overflow: hidden;
+    transition: all 2s ease;
+    padding: 25px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fafafa;
+    position: relative;
+    margin-bottom: 0; /* Grid handles spacing */
+}
+
+/* Article hover effect - shows more content */
+article:hover {
+    color: #000; /* BLACK text on hover */
+    max-height: 1200px; /* Increased to show full article */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Fade effect at bottom of collapsed articles */
+article::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(250, 250, 250, 0) 0%, rgba(250, 250, 250, 1) 100%);
+    pointer-events: none;
+    transition: opacity 2s ease;
+}
+
+article:hover::after {
+    opacity: 0;
+}
+
+/* Article headings - left aligned with no underline */
+article h2 {
+    color: #bbb; /* Gray heading text */
+    margin-bottom: 15px;
+    font-size: 24px;
+    padding-bottom: 0; /* Remove padding */
+    text-align: left; /* Left aligned */
+    border-bottom: none; /* Remove underline */
+    transition: color 2s ease;
+}
+
+/* Article paragraphs - increased line height for better readability */
+article p {
+    margin-bottom: 15px;
+    text-align: left;
+    line-height: 1.7;
+    transition: color 2s ease;
+}
+
+/* First letter of article's main text - keep this for first paragraph */
+article p:first-of-type::first-letter {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 36px;
+    float: left;
+    line-height: 1;
+    margin-right: 8px;
+    font-weight: bold;
+    color: #bbb; /* Gray first letter */
+    margin-top: 4px;
+    transition: color 2s ease;
+}
+
+/* Read more links styling - centered, no line above */
+article p:last-child {
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 0; /* Remove padding */
+    border-top: none; /* Remove line above */
+    font-weight: bold;
+    position: relative;
+    z-index: 2; /* Ensure it's above the fade effect */
+}
+
+/* Google links with arrow.png image - blue and unchanged on hover */
+a[href*="google.com"] {
+    color: #3498db; /* Blue link color - stays same */
+    text-decoration: none;
+    font-weight: bold;
+    padding-right: 25px;
+    position: relative;
+    display: inline-block;
+    /* No transition - stays blue always */
+}
+
+a[href*="google.com"]::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-image: url('arrow.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* No filter - normal arrow always */
+}
+
+/* Article hover effects for all text elements - BUT NOT for "Read more" links */
+article:hover h2 {
+    color: #000; /* BLACK heading on hover */
+}
+
+article:hover p {
+    color: #000; /* BLACK paragraphs on hover */
+}
+
+article:hover p:first-of-type::first-letter {
+    color: #000; /* BLACK first letter on hover */
+}
+
+/* "Read more" links and arrow stay blue - no hover effect for them */
+
+/* Footer styling */
+footer {
+    margin-top: 50px;
+    padding: 30px;
+    border-top: 2px solid #eee;
+    color: #666;
+    background-color: #f9f9f9;
+    width: 100%;
+    grid-column: 1 / -1; /* Make footer span full width in grid context */
+}
+
+footer p {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 18px;
+}
+
+footer address {
+    font-style: normal;
+}
+
+footer address div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 20px;
+}
+
+footer address span:nth-child(odd) {
+    font-weight: bold;
+    color: #555;
+}
+
+footer address a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+/* Thank you message - relative position box with black borders and no rounded edges */
+#thanks {
+    position: relative;
+    width: 400px; 
+    padding: 30px; 
+    background-color: #8fd0f5;
+    border: 2px solid #000; 
+    text-align: center;
+    margin: 40px 30px 20px auto; 
+    float: right; 
+    clear: both; 
+}
+
+#thanks a {
+    font-family: "Times New Roman", Times, serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px; /* Larger font */
+    color: #000;
+}
+
+#thanks a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    #container {
+        grid-template-columns: repeat(2, 1fr); /* Keep 2 columns on medium screens */
+        gap: 20px;
+    }
+    
+    #thanks {
+        width: 350px; /* Slightly smaller on tablet */
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    
+    #menuItems {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+        z-index: auto;
+    }
+    
+    main {
+        margin-left: 0;
+        width: 100%;
+        padding: 0;
+    }
+    
+    header {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    h1 {
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+    
+    #container {
+        padding: 0 20px;
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 20px;
+    }
+    
+    article {
+        max-height: 250px; /* Slightly less on mobile */
+    }
+    
+    article:hover {
+        max-height: 1500px; /* More expansion on mobile */
+    }
+    
+    /* Thank you message - centered on mobile */
+    #thanks {
+        width: 100%;
+        max-width: 400px;
+        margin: 40px auto 20px auto;
+        float: none;
+        padding: 25px;
+    }
+    
+    #menuItems button {
+        width: auto;
+        display: inline-block;
+        margin-right: 8px; /* Reduced spacing */
+        margin-bottom: 8px; /* Reduced spacing */
+        padding: 8px 12px; /* Reduced padding */
+        border: 2px solid #000; /* Black border for mobile too */
+    }
+    
+    /* Mobile button hover - dark blue */
+    #menuItems button:hover {
+        background-color: #1a5276; /* Dark blue color for mobile too */
+        color: white;
+        border-color: #000;
+    }
+}
+
+/* For larger screens, you could add 3 columns */
+@media (min-width: 1400px) {
+    #container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on very large screens */
+    }
 }
