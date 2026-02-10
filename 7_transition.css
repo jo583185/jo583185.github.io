@@ -144,6 +144,7 @@ article {
 article:hover {
 	color: Black;
 	max-height: 1200px;
+	
 } 
 
 /* Fade effect at bottom of collapsed articles */ 
@@ -184,14 +185,8 @@ article p {
 article p:first-of-type::first-letter {
 	font-family: "Times New Roman", Times, serif;
 	font-size: 36px;
-	float: left;
-	line-height: 1;
-	margin-right: 8px;
-	font-weight: bold;
-	color: Gray;
-	margin-top: 4px;
-	transition: color 2s ease;
 } 
+
 
 article p:last-child {
 	margin-top: 20px;
@@ -236,9 +231,7 @@ article:hover p {
 	color: black;
 } 
 
-article:hover p:first-of-type::first-letter {
-	color: black;
-} 
+
 
 /* Footer styling */ 
 footer {
@@ -293,7 +286,7 @@ footer address div {
 /* For larger screens, you could add 3 columns */ 
 @media (min-width: 1400px) {
 	#container {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(4, 1fr);
 		/* 3 columns on very large screens */ 
 		} 
 }
