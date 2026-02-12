@@ -1,7 +1,6 @@
-/* Reset default margin */
 body {
   margin: 0;
-  background-color: powderblue; /* Mobile: 0px–412px */
+  background-color: powderblue; 
 }
 
 p {
@@ -11,7 +10,7 @@ p {
 /* Desktop: 413px and up */
 @media (min-width: 413px) {
   body {
-    background-color: #E6E6FA; /* Light purple (lavender) */
+    background-color: lavender;
   }
   
   p {
