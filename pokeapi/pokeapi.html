@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokemon Team Builder</title>
+
+  <!-- Link CSS file -->
+  <link rel="stylesheet" href="pokeapi.css">
+</head>
+<body>
+
+  <!-- White box wrapper -->
+  <div id="app">
+    <h1>Pokemon Team Builder</h1>
+
+    <input type="text" id="pokemonInput" placeholder="Name or ID">
+    <button id="fetchBtn">Submit</button>
+
+    <div id="pokemonDisplay"></div>
+
+    <button id="addToTeamBtn" disabled>Add to Team</button>
+
+    <h2>Your Team</h2>
+    <div id="teamDisplay"></div>
+  </div>
+
+  <!-- JavaScript ONLY here -->
+  <script src="pokeapi.js"></script>
+</body>
+</html>
